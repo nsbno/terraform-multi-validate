@@ -1,0 +1,35 @@
+name: terraform-multi-validate
+description: Validate a directory containing one or more terraform configurations in 0 or more folders
+author: Åsmund Haugse
+
+inputs:
+  path:
+    description: Path to the folder containing terraform configurations
+    required: false
+    default: .
+  directories:
+    description: String of directories in path to validate terraform in, separated by commas. If provided, only these folders will be validated.
+    required: false
+    default: ""
+  max_depth:
+    description: Max depth of folders to look in for terraform configurations
+    required: false
+    default: 2
+  min_depth:
+    description: Min depth of folders to look in for terraform configurations. Defaults to 1, which does not include current folder.
+    required: false
+    default: 1
+
+
+runs:
+  using: docker
+  image: ./Dockerfile
+  args:
+    - ${{inputs.path}}
+    - ${{inputs.max_depth}}
+    - ${{inputs.min_depth}}
+    - ${{inputs.directories}}
+
+branding:
+  icon: globe
+  color: orange
