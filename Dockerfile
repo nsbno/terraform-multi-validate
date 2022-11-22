@@ -1,5 +1,5 @@
 # Base image
-FROM vydev/terraform:1.2.8
+FROM vydev/terraform:1.3.5
 
 # Copies your code file  repository to the filesystem
 COPY entrypoint.sh /entrypoint.sh
