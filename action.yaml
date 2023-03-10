@@ -7,12 +7,16 @@ inputs:
     description: Path to the folder containing terraform configurations
     required: false
     default: .
+  folder:
+    description: Folder to validate terraform in. If provided, only this folder will be validated. Highest precedence.
+    required: false
+    default: ""
   directories:
     description: String of directories in path to validate terraform in, separated by commas. If provided, only these folders will be validated.
     required: false
     default: ""
   max_depth:
-    description: Max depth of folders to look in for terraform configurations
+    description: Max depth of folders to look in for terraform configurations.
     required: false
     default: 2
   min_depth:
