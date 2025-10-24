@@ -19,7 +19,7 @@ else
 
   for i in ${dirs}; do
     (
-    j=$(echo "$i" | sed 's/\(.*\),/\1 /') # Remove comma for for-loop
+    j=$(echo "$i" | sed 's/\(.*\),/\1/') # Remove comma for for-loop
     echo "Env: $j"
     cd "$j" || ( echo "Something went wrong when CDing into directory $j"; exit 1 )
     echo "In directory $PWD"
